@@ -7,7 +7,7 @@ public class string
     {
         String str="Yash";
 
-        str.charAt(0)=P;
+        // str.charAt(0)=P;
 
         System.out.println(str);
 
