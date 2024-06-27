@@ -21,10 +21,10 @@ public class Collections1
             List<Integer> arr=new ArrayList<Integer>();
 
             arr.add(5);
-            arr.add(6);
+            arr.add(16);
             arr.add(7);
-            arr.add(8);
-            arr.add(9);
+            arr.add(388);
+            arr.add(19);
             arr.add(10);
             arr.add(8);
 
@@ -37,5 +37,14 @@ public class Collections1
             System.out.println(arr.indexOf(9)); //Find the index of Element
 
             System.out.println(arr.lastIndexOf(8));
+
+            Collections.sort(arr);
+
+            for(int i: arr)
+            {
+                System.out.print(i+" ");
+            }
+
+            
         }
 }
