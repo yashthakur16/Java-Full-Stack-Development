@@ -5,9 +5,9 @@ public class string
 {
     public static void main(String[] args) 
     {
-        String str="Yash";
+        StringBuffer str=new StringBuffer("Yash");
 
-        // str.charAt(0)=P;
+        str.charAt(0)='';
 
         System.out.println(str);
 
