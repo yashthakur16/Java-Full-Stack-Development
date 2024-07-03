@@ -1,0 +1,1 @@
+select marks from Student_info where name='Yash';
