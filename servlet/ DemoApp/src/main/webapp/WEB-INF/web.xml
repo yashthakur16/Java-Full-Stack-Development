@@ -18,4 +18,13 @@
     <servlet-name>a</servlet-name>
     <url-pattern>/add</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>b</servlet-name>
+    <servlet-class>com.Yash.squareServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>b</servlet-name>
+    <url-pattern>/square</url-pattern>
+  </servlet-mapping> 
 </web-app>
