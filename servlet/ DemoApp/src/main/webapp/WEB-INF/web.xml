@@ -10,7 +10,7 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list> -->
 
-  <servlet>
+  <!-- <servlet>
     <servlet-name>a</servlet-name>
     <servlet-class>com.Yash.addServlet</servlet-class>
   </servlet>
@@ -27,4 +27,13 @@
     <servlet-name>b</servlet-name>
     <url-pattern>/square</url-pattern>
   </servlet-mapping> 
+
+  <servlet>
+    <servlet-name>c</servlet-name>
+    <servlet-class>com.Yash2.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>c</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>  -->
 </web-app>
