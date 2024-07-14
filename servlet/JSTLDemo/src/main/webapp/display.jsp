@@ -15,7 +15,7 @@
     <sql:setDataSource var="db" driver="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/db1" user="root" password="yash1616" />
     <sql:query var="rs" dataSource="${db}">
         select * from student_info
-        </sql:query>
+    </sql:query>
     <c:forEach items="${rs.rows}" var="student">
         <c:out value="${student.name}"></c:out> : <c:out value="${student.rollno}"></c:out> : <c:out value="${student.marks}"></c:out> 
     </c:forEach>
