@@ -1,0 +1,15 @@
+<web-app>
+	<servlet>
+	  <servlet-name>Alien</servlet-name>
+	  <servlet-class>com.yash.web.Alien</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>Alien</servlet-name>
+	  <url-pattern>/Alien</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	  <servlet-name>Alien</servlet-name>
+	  <url-pattern>/getAliens</url-pattern>
+	</servlet-mapping>
+  </web-app>
+  
