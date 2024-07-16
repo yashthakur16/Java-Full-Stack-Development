@@ -65,9 +65,7 @@ To run a specific project or module, navigate to its directory and follow the in
 Here are some useful resources that I found helpful during my learning journey:
 - [Official Java Documentation](https://docs.oracle.com/javase/8/docs/)
 - [Spring Framework Documentation](https://spring.io/projects/spring-framework)
-- [Angular Documentation](https://angular.io/docs)
-- [React Documentation](https://reactjs.org/docs/getting-started.html)
-
+  
 ## Contributing
 
 I welcome contributions to enhance this learning repository. If you have any suggestions, improvements, or new learning modules to add, please feel free to submit a pull request or open an issue.
