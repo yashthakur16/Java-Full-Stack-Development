@@ -1,14 +1,20 @@
 package com.yash.Demohib;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 
 @Entity
+@Table(name="Friend3")
 public class Alien 
 {
 	@Id
 	private int aid;
-	private String aname;
+	
+	private FullName name;
+
 	private String color;
 	
 	
@@ -20,18 +26,30 @@ public class Alien
 	public void setAid(int aid) {
 		this.aid = aid;
 	}
-	public String getAname() {
-		return aname;
+	
+	
+	
+	public FullName getName() {
+		return name;
 	}
-	public void setAname(String aname) {
-		this.aname = aname;
+	public void setName(FullName name) {
+		this.name = name;
 	}
+	
 	public String getColor() {
 		return color;
 	}
 	public void setColor(String color) {
 		this.color = color;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Alien [aid=" + aid + ", aname=" + name + ", color=" + color + "]";
+	}
+	
+	
 	
 	
 }
