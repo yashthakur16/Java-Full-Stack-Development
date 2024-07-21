@@ -1,8 +1,12 @@
 package com.yash.relationMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -12,16 +16,20 @@ public class Student
     private int Sid;
     private String Sname;
     private int Smarks;
-    @OneToOne
-    private Laptop l;
+  
+    @ManyToMany(mappedBy = "student")
+    private List<Laptop> laptop =new ArrayList<>();
 
-    
-    public Laptop getL() {
-		return l;
+  
+	public List<Laptop> getLaptop() {
+		return laptop;
 	}
-	public void setL(Laptop l) {
-		this.l = l;
+	public void setLaptop(List<Laptop> laptop) {
+		this.laptop = laptop;
 	}
+	
+	
+	
 	public int getSid() {
         return Sid;
     }
