@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
 public class Cache {
@@ -16,8 +17,10 @@ public class Cache {
 	       SessionFactory sf = con.buildSessionFactory(reg);
 	       Session session = sf.openSession();
 	       session.beginTransaction();
-	       
-	       a=session.get(Alien.class, 1);
+	       Query q1= session.createQuery("from Alien where aid=1");
+	       q1.setCacheable(true);
+//	       a=session.get(Alien.class, 1);
+	       a=(Alien)q1.uniqueResult();
 	       
 	       System.out.println(a);
 	       
@@ -26,9 +29,11 @@ public class Cache {
 	       
 	       Session session1 = sf.openSession();
 	       session1.beginTransaction();
+	       Query q2= session1.createQuery("from Alien where aid=3");
+	       q2 .setCacheable(true);
+//	       a=session1.get(Alien.class, 1);
 	       
-	       
-	       a=session1.get(Alien.class, 1);
+	       a=(Alien) q2.uniqueResult();
 	       
 	       System.out.println(a);
 	       session1.getTransaction().commit();
