@@ -1,0 +1,24 @@
+package com.Demo.SpringJDBCdemo.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.Demo.SpringJDBCdemo.model.Alien;
+
+@Repository
+public class AlienRepository 
+{
+	public void save()
+	{
+		System.out.println("Added");
+	}
+	
+
+	
+	public List<Alien> getAll()
+	{
+		return new ArrayList<>();
+	}
+}

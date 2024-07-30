@@ -1,0 +1,1 @@
+insert values into Human(id,name,marks) values (102,"Rohan",88);

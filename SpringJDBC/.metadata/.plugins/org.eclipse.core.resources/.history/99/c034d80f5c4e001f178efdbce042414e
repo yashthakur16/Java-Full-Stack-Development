@@ -1,0 +1,8 @@
+package com.Demo.SpringJDBCdemo.Repository;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class HumanRepository {
+
+}
