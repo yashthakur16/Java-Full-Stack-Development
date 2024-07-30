@@ -1,0 +1,1 @@
+create table Alien (id int primary key, Name varchar(50), tech varchar(50));

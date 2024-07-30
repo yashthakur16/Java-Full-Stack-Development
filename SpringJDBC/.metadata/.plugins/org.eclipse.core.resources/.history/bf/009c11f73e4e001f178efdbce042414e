@@ -1,0 +1,49 @@
+package com.Demo.SpringJDBCdemo.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.Demo.SpringJDBCdemo.model.Alien;
+
+@Repository
+public class AlienRepository 
+{
+	
+	private JdbcTemplate template;
+	
+	
+	
+	
+	
+	public JdbcTemplate getTemplate() {
+		return template;
+	}
+
+
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+
+
+	public void save(Alien a)
+	{
+		String sql="insert into Alien (id,name,tech) values (?,?,?)";
+		template.update(sql,a.getId(),a.getName(),a.getTech());
+	}
+	
+
+	
+	public List<Alien> getAll()
+	{
+		String sql="Select * from Alien";
+		
+		template.query(sql, RowMapper)
+	}
+}

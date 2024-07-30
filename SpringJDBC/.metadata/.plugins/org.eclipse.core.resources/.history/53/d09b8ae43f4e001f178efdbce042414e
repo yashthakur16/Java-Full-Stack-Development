@@ -1,0 +1,32 @@
+package com.Demo.SpringJDBCdemo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.Demo.SpringJDBCdemo.Repository.AlienRepository;
+import com.Demo.SpringJDBCdemo.model.Alien;
+
+@SpringBootApplication
+public class SpringJdbCdemoApplication {
+
+	public static void main(String[] args) {
+		
+		ConfigurableApplicationContext context=SpringApplication.run(SpringJdbCdemoApplication.class, args);
+		
+		Alien a= context.getBean(Alien.class);
+//		
+//		
+//		a.setId(4);
+//		a.setName("Yash");
+//		a.setTech("CPP");
+		
+		AlienRepository repo= context.getBean(AlienRepository.class);
+		
+//		repo.save(a);
+		repo.getAll();
+		
+		
+	}
+
+}
