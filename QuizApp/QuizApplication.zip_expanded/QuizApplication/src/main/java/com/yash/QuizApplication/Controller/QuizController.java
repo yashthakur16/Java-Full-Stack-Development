@@ -3,6 +3,7 @@ package com.yash.QuizApplication.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,22 +24,22 @@ public class QuizController
 	questionService qs;
 	
 	@GetMapping("allQuestions")
-	public List<question> getAllQuestions()
+	public ResponseEntity< List<question>> getAllQuestions()
 	{
 		return qs.getAllQuestions();
 	}
 	
 	@GetMapping("allQuestions/{level}")
-	public List<question> levelQuestion(@PathVariable String level)
+	public ResponseEntity< List<question>>levelQuestion(@PathVariable String level)
 	{
 		return qs.levelQuestion(level);
 	}
 	
 	@PostMapping("addQuestion")
-	public void addQuestion(@RequestBody question p)
+	public ResponseEntity< String> addQuestion(@RequestBody question p)
 	{
-		qs.addQuestion(p);
-		return ;
+		return qs.addQuestion(p);
+		
 	}
 
 }
