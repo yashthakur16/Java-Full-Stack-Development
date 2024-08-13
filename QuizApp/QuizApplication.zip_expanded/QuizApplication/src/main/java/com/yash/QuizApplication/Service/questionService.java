@@ -1,8 +1,11 @@
 package com.yash.QuizApplication.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.yash.QuizApplication.Dao.QuestionDao;
@@ -16,22 +19,43 @@ public class questionService {
 	QuestionDao dao;
 	
 	
-	public List<question> getAllQuestions() 
+	public ResponseEntity< List<question>> getAllQuestions() 
 	{
-		return dao.findAll();
+		try
+		{
+			return new ResponseEntity<>(dao.findAll(),HttpStatus.OK) ;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return new ResponseEntity<>(new ArrayList<>(),HttpStatus.BAD_REQUEST);
+		
 		
 	}
 
 
-	public List<question> levelQuestion(String level) {
-		return dao.findBydifficultyLevel(level);
+	public ResponseEntity< List<question>> levelQuestion(String level) {
+		try
+		{
+			return new ResponseEntity<> (dao.findBydifficultyLevel(level),HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return new ResponseEntity<>(new ArrayList<>(),HttpStatus.BAD_REQUEST);
+		
+		
 	}
 
 
-	public void addQuestion(question p) {
+	public ResponseEntity<String> addQuestion(question p) {
 		dao.save(p);
 		
-		return ;
+		return new ResponseEntity<>("Success",HttpStatus.CREATED);
 		
 	}
 
