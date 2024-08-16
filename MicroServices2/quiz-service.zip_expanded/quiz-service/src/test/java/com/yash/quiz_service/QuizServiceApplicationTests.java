@@ -1,10 +1,10 @@
-package com.yash.question_service;
+package com.yash.quiz_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class QuestionServiceApplicationTests {
+class QuizServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
