@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.yash.quiz_service.Service.QuizService;
 import com.yash.quiz_service.model.QuestionWrapper;
 import com.yash.quiz_service.model.Response;
+import com.yash.quiz_service.model.quizDto;
 
 
 @RestController
@@ -23,11 +24,11 @@ public class qController
 	@Autowired
 	QuizService qs;
 	
-//	@PostMapping("create")
-//	public ResponseEntity<String> create(@RequestParam String level, @RequestParam int numQ, @RequestParam String title)
-//	{
-//		return qs.create(level,numQ,title);
-//	}
+	@PostMapping("create")
+	public ResponseEntity<String> create(@RequestBody quizDto dto)
+	{
+		return qs.create(dto);
+	}
 	
 	@GetMapping("get/{id}")
 	public ResponseEntity<List<QuestionWrapper>> get(@PathVariable int id)

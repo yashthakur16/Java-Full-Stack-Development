@@ -14,6 +14,7 @@ import com.yash.quiz_service.model.QuestionWrapper;
 import com.yash.quiz_service.model.Quiz;
 import com.yash.quiz_service.model.Response;
 import com.yash.quiz_service.model.question;
+import com.yash.quiz_service.model.quizDto;
 
 @Service
 public class QuizService 
@@ -58,6 +59,15 @@ public class QuizService
 			
 		}
 		return new ResponseEntity<>(right,HttpStatus.OK);
+	}
+
+	public ResponseEntity<String> create(quizDto dto) {
+		Quiz q=new Quiz();
+		q.setTitle(dto.getTitle());
+		List<Integer> questions=
+		
+		quizdao.save(q);
+		return new ResponseEntity<>("Success",HttpStatus.CREATED);
 	}
 	
 	
