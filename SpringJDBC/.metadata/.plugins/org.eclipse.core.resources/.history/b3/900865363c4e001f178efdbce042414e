@@ -1,3 +1,0 @@
-insert into Alien (id,name,tech) values (1,"Rohan","java");
-insert into Alien (id,name,tech) values (2,"Shrikunj","python");
-insert into Alien (id,name,tech) values (3,"Vishrut","html");

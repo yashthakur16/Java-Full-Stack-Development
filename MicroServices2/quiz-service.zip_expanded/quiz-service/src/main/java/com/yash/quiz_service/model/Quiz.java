@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.annotations.ManyToAny;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,8 +19,8 @@ public class Quiz {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String title;
-	@ManyToAny
-	private List<question> questions;
+	@ElementCollection
+	private List<Integer> questionsIds;
 	
 	
 	public int getId() {
@@ -34,12 +35,14 @@ public class Quiz {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public List<question> getQuestions() {
-		return questions;
+	public List<Integer> getQuestionsIds() {
+		return questionsIds;
 	}
-	public void setQuestions(List<question> questions) {
-		this.questions = questions;
+	public void setQuestionsIds(List<Integer> questionsIds) {
+		this.questionsIds = questionsIds;
 	}
+
+	
 	
 	
 	
