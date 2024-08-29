@@ -1,5 +1,0 @@
-package com.Demo.SpringJDBCdemo.Repository;
-
-public class HumanRepository {
-
-}

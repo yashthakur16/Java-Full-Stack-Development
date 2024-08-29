@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.yash.quiz_service.Dao.Quizdao;
+import com.yash.quiz_service.feign.QuizInterface;
 import com.yash.quiz_service.model.QuestionWrapper;
 import com.yash.quiz_service.model.Quiz;
 import com.yash.quiz_service.model.Response;
@@ -22,52 +23,33 @@ public class QuizService
 	@Autowired
 	Quizdao quizdao;
 	
+	@Autowired
+	QuizInterface qI;
+	
 
-//	public ResponseEntity<String> create(String level, int numQ, String title) {
-//		Quiz q=new Quiz();
-//		q.setTitle(title);
-//		List<question> questions=questiondao.getRandom(level,numQ);
-//		q.setQuestions(questions);
-//		quizdao.save(q);
-//		return new ResponseEntity<>("Success",HttpStatus.CREATED);
-//	}
 
 	public ResponseEntity<List<QuestionWrapper>> get(int id) {
 		Optional<Quiz> quiz=quizdao.findById(id);
-		List<question> questions=quiz.get().getQuestions();
-		List<QuestionWrapper> questionForClient=new ArrayList<>(); 
-		for (question q : questions) {
-			QuestionWrapper qw=new QuestionWrapper(q.getId(), q.getQuestionTitle(), q.getOption1(), q.getOption2(), q.getOption3(),q.getOption4());
-			questionForClient.add(qw);
-		}
-		return new ResponseEntity<> (questionForClient,HttpStatus.OK);
+		List<Integer> qIds=quiz.get().getQuestionsIds();
+		
+		ResponseEntity<List<QuestionWrapper>> questions=qI.getQuestions(qIds);
+		return questions;
 	}
 	
 	public ResponseEntity<Integer> result(int id, List<Response> responses)
 	{
-		Quiz quiz=quizdao.findById(id).get();
-		List<question> questions=quiz.getQuestions();
-		int right=0;
-		int i=0;
-		for (Response r : responses) 
-		{
-			if(r.getAnswer().equals(questions.get(i).getRightAnswer()))
-			{
-				right++;
-			}
-			i++;
-			
-		}
-		return new ResponseEntity<>(right,HttpStatus.OK);
+		return qI.getScore(responses);
 	}
 
 	public ResponseEntity<String> create(quizDto dto) {
+	
+		List<Integer> questions=qI.generateQuestions(dto.getLevel(), dto.getNum()).getBody();
 		Quiz q=new Quiz();
 		q.setTitle(dto.getTitle());
-		List<Integer> questions=
-		
+		q.setQuestionsIds(questions);
 		quizdao.save(q);
 		return new ResponseEntity<>("Success",HttpStatus.CREATED);
+		
 	}
 	
 	

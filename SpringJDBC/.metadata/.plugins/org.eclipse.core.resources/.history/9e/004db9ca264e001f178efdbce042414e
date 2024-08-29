@@ -1,9 +1,0 @@
-package com.Demo.SpringJDBCdemo.Repository;
-
-public class AlienRepository 
-{
-	public void save()
-	{
-		System.out.println("Added");
-	}
-}
